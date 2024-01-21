@@ -38,6 +38,7 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           port: 22
           source: ./
+          target: /var/www/html
 
       - name: Restart Nginx
         uses: appleboy/ssh-action@v1.0.3
