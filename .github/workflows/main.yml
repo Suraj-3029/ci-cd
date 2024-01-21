@@ -38,4 +38,15 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           port: 22
           source: ./
+
+      - name: Restart Nginx
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USERNAME }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          port: 22
+          script: |
+            sudo systemctl restart nginx
+            sudo systemctl status nginx
        
